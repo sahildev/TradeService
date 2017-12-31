@@ -20,4 +20,16 @@ public class Trade {
 	private String tradeName;
 	private int quantity;
 
+	public Trade withName(String tradeName) {
+
+		setTradeName(tradeName);
+		return this;
+	}
+	
+	public Trade withId(String tradeId) {
+
+		setTradeId(tradeId);
+		return this;
+	}
+
 }
