@@ -1,1 +1,18 @@
 /* You can add global styles to this file, and also import other style files */
+@import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+
+body {
+  margin: 0;
+  font-family: Roboto, sans-serif;
+}
+/* valid and required show green */
+input.ng-valid[required] {
+  border-left: 5px solid #42A948; /* green */
+}
+
+/* invalid */
+input.ng-invalid {
+  border-left: 5px solid #a94442; /* red */
+}
+

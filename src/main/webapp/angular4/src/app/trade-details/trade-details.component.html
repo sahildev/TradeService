@@ -1,0 +1,35 @@
+<section *ngIf="trade">
+  <h2>You selected: {{trade.tradeName}}</h2>
+  <h3>Description</h3>
+  <p>
+    {{trade.tradeName}} was execute with quantity {{trade.quantity}} tons.
+  </p>
+</section>
+
+<section>
+  <div class="form-container">
+    <form #tradeForm="ngForm" (ngSubmit)="saveTradeDetails()" #tradeForm="ngForm">
+
+      <mat-form-field>
+        <label for="tradeName">Trade Name: </label>
+        <input matInput type="text" name="tradeName" required [(ngModel)]="trade.tradeName" #tradeName="ngModel">
+      </mat-form-field>
+      <div [hidden]="tradeName.valid || tradeName.pristine" class="error">
+        Trade Name is required!
+      </div>
+      <br>
+      <mat-form-field>
+        <label for="quantity">Quantity: </label>
+        <input matInput type="text" name="quantity" [(ngModel)]="trade.quantity" #quantity="ngModel">
+      </mat-form-field>
+      <br>
+      <button mat-raised-button type="submit" [disabled]="!tradeForm.form.valid">Save</button>
+
+    </form>
+  </div>
+</section>
+<br>
+
+<button mat-icon-button (click)="gotoTradesList()">
+    <mat-icon aria-label="Back to trade list">keyboard_return</mat-icon>
+  </button>

@@ -1,0 +1,10 @@
+@import '~https://fonts.googleapis.com/icon?family=Material+Icons';
+@import '~@angular/material/prebuilt-themes/indigo-pink.css';
+
+.app-content {
+  padding: 5px;
+}
+
+.app-content mat-card {
+  margin: 5px;
+}
