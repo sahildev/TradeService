@@ -30,11 +30,13 @@ export class TradeService {
 
     }
 
-    save(trade: Trade): Observable<Response> {
+    save(trade: Trade): Observable<number> {
+        console.log("Inside Update");
         return this
             .http
-            .put(`${this.baseUrl}/v1/trade/${trade.tradeId}`,
-            JSON.stringify(trade));
+            .put(`${this.baseUrl}/v1/trade/${trade.tradeId}`,trade)
+            .map(success => success.status)
+               .catch(this.handleError);
     }
 
     //Create trade

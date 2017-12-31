@@ -13,10 +13,15 @@ export class TradeDetailsComponent implements OnInit {
 
   trade: Trade;
   sub: any;
+  statusCode: number;
 
   saveTradeDetails(){
-        alert(`saved!!! ${JSON.stringify(this.trade)}`);
-        this.tradeService.save(this.trade);
+       // alert(`saved!!! ${JSON.stringify(this.trade)}`);
+        this.tradeService.save(this.trade)
+        .subscribe(successCode => {
+		              this.statusCode = successCode;
+			},
+		        errorCode => this.statusCode = errorCode);
     }
 
   constructor(private tradeService: TradeService,
