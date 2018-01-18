@@ -56,7 +56,6 @@ public class TradeService {
 		PublishRequest publishRequest = new PublishRequest(topicArn, msg);
 		PublishResult publishResult = ssnClient.publish(publishRequest);
 		
-		//ssnClient.publish(new PublishRequest() .withMessage("abc"));
 		repository.save(trade);
 		return Optional.of(trade);
 	}

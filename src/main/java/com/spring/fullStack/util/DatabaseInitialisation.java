@@ -41,6 +41,19 @@ public class DatabaseInitialisation implements ApplicationListener<ContextRefres
       CreateTableResult result = dynamoDB.createTable(request);
       log.info("Table creation triggered {}, {}", request.getTableName(), result.getTableDescription().getTableStatus());
     }
+    
+    
+    log.trace("Entering createDatabaseTablesIfNotExist()");
+    CreateTableRequest request2 = dbMapper
+        .generateCreateTableRequest(com.spring.fullStack.marketDataService.Metal.class)
+        .withProvisionedThroughput(new ProvisionedThroughput(1L, 1L));
+    try {
+      DescribeTableResult result = dynamoDB.describeTable(request2.getTableName());
+      log.info("Table status {}, {}", request2.getTableName(), result.getTable().getTableStatus());
+    } catch (ResourceNotFoundException expectedException) {
+      CreateTableResult result = dynamoDB.createTable(request2);
+      log.info("Table creation triggered {}, {}", request2.getTableName(), result.getTableDescription().getTableStatus());
+    }
   }
 
 }
