@@ -1,6 +1,7 @@
 <div class="app-content">
   <mat-toolbar color="primary">
     <mat-toolbar-row>
+      <mat-icon class="example-icon">build</mat-icon>
       <span id="header"> Order Services</span>
     </mat-toolbar-row>
   </mat-toolbar>
@@ -8,7 +9,48 @@
 
 <div class="app-content">
   <mat-card>
-    <mat-card-title> Trade Creation</mat-card-title>
+   <mat-table #table [dataSource]="dataSource2">
+
+    <!-- Metal Id Column -->
+    <ng-container matColumnDef="metalId">
+      <mat-header-cell *matHeaderCellDef> Metal Id </mat-header-cell>
+      <mat-cell *matCellDef="let metal">{{metal.metalId}}</mat-cell>
+    </ng-container>
+
+    <!-- Metal Identifier Column -->
+    <ng-container matColumnDef="metalIdentifier">
+      <mat-header-cell *matHeaderCellDef> metalIdentifier</mat-header-cell>
+      <mat-cell *matCellDef="let metal"> {{metal.metalIdentifier}} </mat-cell>
+    </ng-container>
+
+    <!-- Metal Name Column -->
+    <ng-container matColumnDef="metalName">
+      <mat-header-cell *matHeaderCellDef> metalName </mat-header-cell>
+      <mat-cell *matCellDef="let metal"> {{metal.metalName}} </mat-cell>
+    </ng-container>
+
+    <!-- metal Rate Column -->
+    <ng-container matColumnDef="metalRate">
+      <mat-header-cell *matHeaderCellDef> metalRate </mat-header-cell>
+      <mat-cell *matCellDef="let metal"> {{metal.metalRate}} </mat-cell>
+    </ng-container>
+
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+  </mat-table>
+  </mat-card>
+
+  <mat-card>
+    <mat-card-title> Basic Card</mat-card-title>
+    <mat-card-subtitle>Basic Card Subtitle</mat-card-subtitle>
+    <mat-card-content>
+      <mat-tab-group>
+        <mat-tab label="Trades List">
+          <router-outlet></router-outlet>
+        </mat-tab>
+        <mat-tab label="Trade Create">
+          <br>
+           <mat-card-title> Trade Creation</mat-card-title>
     <mat-card-subtitle>Trade Creation Form</mat-card-subtitle>
     <mat-card-content>
    <section>
@@ -32,17 +74,6 @@
   </div>
 </section>
     </mat-card-content>
-  </mat-card>
-
-  <mat-card>
-    <mat-card-title> Basic Card</mat-card-title>
-    <mat-card-subtitle>Basic Card Subtitle</mat-card-subtitle>
-    <mat-card-content>
-      <mat-tab-group>
-        <mat-tab label="Trades List">
-          <router-outlet></router-outlet>
-        </mat-tab>
-        <mat-tab label="Tab2">
         </mat-tab>
       </mat-tab-group>
     </mat-card-content>

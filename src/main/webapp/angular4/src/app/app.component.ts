@@ -1,8 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 //imports to handle api requests
 import {Http, Response} from "@angular/http";
-import {Observable} from "rxjs/Rx";
+//import {Observable} from "rxjs/Rx";
 import "rxjs/add/operator/map";
 import "rxjs/add/operator/catch";
 
@@ -11,21 +11,31 @@ import { FormControl, FormGroup } from '@angular/forms';
 import { Trade } from './trade';
 import { TradeService } from './trade.service';
 
+//Imports to handle market data 
+import { MatTableDataSource } from '@angular/material';
+import { DataSource } from '@angular/cdk/collections';
+import { Observable } from 'rxjs/Observable';
+import { marketData } from './marketData';
+import {marketDataService} from './marketData.service';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
+export class AppComponent implements OnInit  {
   
   public submitted:boolean;
   tradeCreation : FormGroup;
   trade: Trade;
   statusCode: number;
 
-  constructor(private tradeService: TradeService) {
-  }
+  constructor(private tradeService: TradeService,
+  private marketDataService: marketDataService) {}
+
+  dataSource2 = new MarketDataSource(this.marketDataService);
+  displayedColumns = ['metalId', 'metalIdentifier','metalName','metalRate'];
+
 
   ngOnInit() {
         this.tradeCreation = new FormGroup({
@@ -50,4 +60,17 @@ export interface TradeCreation {
   tradeId:string;
   tradeName:string;
   quantity:number;
+}
+
+
+/**************   Market Data Service Section start       */
+
+export class MarketDataSource extends DataSource<any> {
+  constructor(private marketDataService: marketDataService) {
+    super();
+  }
+  connect(): Observable<marketData[]> {
+    return this.marketDataService.getAll();
+  }
+  disconnect() { }
 }

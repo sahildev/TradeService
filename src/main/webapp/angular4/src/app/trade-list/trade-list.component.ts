@@ -18,6 +18,7 @@ export class TradeListComponent implements OnInit {
   dataSource = new UserDataSource(this.tradeService);
   displayedColumns = ['tradeId', 'tradeName','quantity'];
 
+  // Filter not working existing issue needs to be resolved in later stages
   applyFilter(filterValue: string) {
     filterValue = filterValue.trim(); // Remove whitespace
     filterValue = filterValue.toLowerCase(); // MatTableDataSource defaults to lowercase matches

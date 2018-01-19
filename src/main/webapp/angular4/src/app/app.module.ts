@@ -13,6 +13,7 @@ import { AppComponent } from './app.component';
 //Trade service specific imports
 import { TradeListComponent } from './trade-list/trade-list.component';
 import { TradeService } from './trade.service';
+import { marketDataService } from './marketData.service';
 import { TradeDetailsComponent } from './trade-details/trade-details.component';
 
 @NgModule({
@@ -30,7 +31,7 @@ import { TradeDetailsComponent } from './trade-details/trade-details.component';
     AppMaterialModule,
     BrowserAnimationsModule
   ],
-  providers: [TradeService],
+  providers: [TradeService,marketDataService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -6,17 +6,17 @@ import { TradeDetailsComponent } from "./trade-details/trade-details.component";
 
 // Route config let's you map routes to components
 const routes: Routes = [
-  // map '/persons' to the people list component
+  // map '/trades' to the people list component
   {
     path: 'trades',
     component: TradeListComponent,
   },
-  // map '/persons/:id' to person details component
+  // map 'trades/:tradeId' to person details component
   {
     path: 'trades/:tradeId', 
     component: TradeDetailsComponent 
   },
-  // map '/' to '/persons' as our default route
+  // map '/' to '/trades' as our default route
   {
     path: '',
     redirectTo: '/trades',
