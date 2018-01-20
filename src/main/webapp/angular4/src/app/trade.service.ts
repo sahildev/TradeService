@@ -34,22 +34,22 @@ export class TradeService {
         console.log("Inside Update");
         return this
             .http
-            .put(`${this.baseUrl}/v1/trade/${trade.tradeId}`,trade)
+            .put(`${this.baseUrl}/v1/trade/${trade.tradeId}`, trade)
             .map(success => success.status)
-               .catch(this.handleError);
+            .catch(this.handleError);
     }
 
     //Create trade
-    create(trade: Trade):Observable<number> {
+    create(trade: Trade): Observable<number> {
         console.log("Inside create");
         return this.http.post(`${this.baseUrl}/v1/trade/`, trade)
-               .map(success => success.status)
-               .catch(this.handleError);
+            .map(success => success.status)
+            .catch(this.handleError);
     }
 
-    private handleError (error: Response | any) {
-	console.error(error.message || error);
-	return Observable.throw(error.status);
+    private handleError(error: Response | any) {
+        console.error(error.message || error);
+        return Observable.throw(error.status);
     }
 }
 
@@ -66,6 +66,9 @@ function toTrade(tr: any): Trade {
         tradeId: tr.tradeId,
         tradeName: tr.tradeName,
         quantity: Number.parseInt(tr.quantity),
+        commodity: tr.commodity,
+        location: tr.location,
+        counterparty: tr.counterparty,
     });
     console.log('Parsed trade:', trade);
     return trade;

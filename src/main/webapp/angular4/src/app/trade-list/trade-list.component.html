@@ -1,11 +1,5 @@
 <div class="trade-container mat-elevation-z8">
 
-  <div class="trade-header">
-    <mat-form-field>
-      <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
-    </mat-form-field>
-  </div>
-
   <mat-table #table [dataSource]="dataSource">
 
     <!-- TradeId Column -->
@@ -26,7 +20,27 @@
       <mat-cell *matCellDef="let trade"> {{trade.quantity}} </mat-cell>
     </ng-container>
 
-    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
-    <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+    <!-- Trade Quantity Column -->
+    <ng-container matColumnDef="commodity">
+      <mat-header-cell *matHeaderCellDef> commodity </mat-header-cell>
+      <mat-cell *matCellDef="let trade"> {{trade.commodity}} </mat-cell>
+    </ng-container>
+
+    <!-- Trade Quantity Column -->
+    <ng-container matColumnDef="location">
+      <mat-header-cell *matHeaderCellDef> location </mat-header-cell>
+      <mat-cell *matCellDef="let trade"> {{trade.location}} </mat-cell>
+    </ng-container>
+
+    <!-- Trade Quantity Column -->
+    <ng-container matColumnDef="counterparty">
+      <mat-header-cell *matHeaderCellDef> counterparty </mat-header-cell>
+      <mat-cell *matCellDef="let trade"> {{trade.counterparty}} </mat-cell>
+    </ng-container>
+
+
+
+    <mat-header-row *matHeaderRowDef="displayedColumnsTrade"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumnsTrade;"></mat-row>
   </mat-table>
 </div>

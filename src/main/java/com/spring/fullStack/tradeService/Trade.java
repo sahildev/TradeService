@@ -19,6 +19,9 @@ public class Trade {
 	private String tradeId;
 	private String tradeName;
 	private int quantity;
+	private String commodity;
+	private String location;
+	private String counterparty;
 
 	public Trade withName(String tradeName) {
 

@@ -41,9 +41,9 @@ public class TradeRepository {
 		log.trace("Entering save() with {}", trade);
 		dbMapper.save(trade);
 	}
-	
+
 	public void delete(String tradeId) {
 
-	    dbMapper.delete(new Trade().withId(tradeId), new DynamoDBMapperConfig(SaveBehavior.CLOBBER));
-	  }
+		dbMapper.delete(new Trade().withId(tradeId), new DynamoDBMapperConfig(SaveBehavior.CLOBBER));
+	}
 }

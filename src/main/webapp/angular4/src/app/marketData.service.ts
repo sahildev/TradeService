@@ -10,7 +10,7 @@ import 'rxjs/add/operator/catch';
 @Injectable()
 export class marketDataService {
 
-private baseUrl: string = 'http://localhost:8080';
+    private baseUrl: string = 'http://localhost:8080';
 
     constructor(private http: Http) {
     }
@@ -21,7 +21,7 @@ private baseUrl: string = 'http://localhost:8080';
             .map(mapMarketData);
         return metal$;
     }
-   
+
 }
 
 function mapMarketData(response: Response): marketData[] {
