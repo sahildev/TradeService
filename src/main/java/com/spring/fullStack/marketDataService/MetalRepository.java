@@ -1,6 +1,7 @@
 package com.spring.fullStack.marketDataService;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -32,4 +33,11 @@ public class MetalRepository {
 		log.trace("Entering save() with {}", metal);
 		dbMapper.save(metal);
 	}
+
+	public Optional<Metal> read(String metalId) {
+		log.trace("Entering read() with {}", metalId);
+		return Optional.ofNullable(dbMapper.load(Metal.class, metalId));
+	}
+	
+	
 }

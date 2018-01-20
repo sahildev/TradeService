@@ -19,5 +19,12 @@ public class Metal {
 	private String metalId;
 	private String metalIdentifier;
 	private String metalName;
-	private String metalRate;
+	private int metalRate;
+	
+	
+	public Metal withId(String metalId) {
+
+		setMetalId(metalId);
+		return this;
+	}
 }

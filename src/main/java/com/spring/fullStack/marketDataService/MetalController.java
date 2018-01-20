@@ -2,6 +2,7 @@ package com.spring.fullStack.marketDataService;
 
 import static org.springframework.http.HttpStatus.CONFLICT;
 import static org.springframework.http.HttpStatus.CREATED;
+import static org.springframework.http.HttpStatus.NOT_FOUND;
 import static org.springframework.http.HttpStatus.NO_CONTENT;
 import static org.springframework.http.HttpStatus.OK;
 
@@ -14,6 +15,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -51,4 +53,13 @@ public class MetalController {
 	        .orElse(new ResponseEntity<>(CONFLICT));
 	  }
 	
+	  
+	  @RequestMapping(path = "/metal/{metalId}", method = RequestMethod.PUT)
+	  public ResponseEntity<Metal> put(@PathVariable String metalId, @RequestBody Metal metal) {
+
+	    log.info("Entering put() with {}, {}", metalId, metal);
+	    return service.replace(metal.withId(metalId))
+				.map(newMetalData -> new ResponseEntity<>(newMetalData, OK))
+	        .orElse(new ResponseEntity<>(NOT_FOUND));
+	  }
 }
