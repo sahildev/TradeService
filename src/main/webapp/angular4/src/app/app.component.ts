@@ -47,7 +47,10 @@ export class AppComponent implements OnInit  {
         this.tradeCreation = new FormGroup({
             tradeId: new FormControl(''),
             tradeName: new FormControl(''),
-            quantity: new FormControl('')
+            quantity: new FormControl(''),
+            commodity: new FormControl(''),
+            location: new FormControl(''),
+            counterparty: new FormControl('')
         });
         //   this.interval = setInterval(() => { 
             this.refresh();

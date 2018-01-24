@@ -23,6 +23,11 @@
         <input matInput type="text" name="quantity" [(ngModel)]="trade.quantity" #quantity="ngModel">
       </mat-form-field>
       <br>
+      <mat-form-field>
+        <label for="commodity">Commodity: </label>
+        <input matInput type="text" name="commodity" [(ngModel)]="trade.commodity" #commodity="ngModel">
+      </mat-form-field>
+      <br>
       <button mat-raised-button type="submit" [disabled]="!tradeForm.form.valid">Save</button>
 
     </form>

@@ -29,13 +29,13 @@
     <!-- Trade Quantity Column -->
     <ng-container matColumnDef="location">
       <mat-header-cell *matHeaderCellDef> location </mat-header-cell>
-      <mat-cell *matCellDef="let trade"> {{trade.location}} </mat-cell>
+      <mat-cell *matCellDef="let trade"> <a [routerLink]="['/refdata', trade.location]">{{trade.location}} </a></mat-cell>
     </ng-container>
 
     <!-- Trade Quantity Column -->
     <ng-container matColumnDef="counterparty">
       <mat-header-cell *matHeaderCellDef> counterparty </mat-header-cell>
-      <mat-cell *matCellDef="let trade"> {{trade.counterparty}} </mat-cell>
+      <mat-cell *matCellDef="let trade"> <a [routerLink]="['/refdata', trade.counterparty]">{{trade.counterparty}} </a></mat-cell>
     </ng-container>
 
 

@@ -35,6 +35,7 @@ function toMarketData(md: any): marketData {
         metalName: md.metalName,
         metalRate: Number.parseInt(md.metalRate),
     });
-    console.log('Parsed marketData:', marketData);
+    // Commented to disable recurrent logs
+    //console.log('Parsed marketData:', marketData);
     return marketData;
 }

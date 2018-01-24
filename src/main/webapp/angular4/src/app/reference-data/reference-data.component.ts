@@ -38,4 +38,9 @@ export class ReferenceDataComponent implements OnInit {
     this.sub.unsubscribe();
   }
 
+   gotoTradesList() {
+    let link = ['/trades'];
+    this.router.navigate(link);
+  }
+
 }

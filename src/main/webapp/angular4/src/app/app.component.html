@@ -9,35 +9,35 @@
 
 <div class="app-content">
   <mat-card>
-   <mat-table #table [dataSource]="dataSource2">
+    <mat-table #table [dataSource]="dataSource2">
 
-    <!-- Metal Id Column -->
-    <ng-container matColumnDef="metalId">
-      <mat-header-cell *matHeaderCellDef> Metal Id </mat-header-cell>
-      <mat-cell *matCellDef="let metal">{{metal.metalId}}</mat-cell>
-    </ng-container>
+      <!-- Metal Id Column -->
+      <ng-container matColumnDef="metalId">
+        <mat-header-cell *matHeaderCellDef> Metal Id </mat-header-cell>
+        <mat-cell *matCellDef="let metal">{{metal.metalId}}</mat-cell>
+      </ng-container>
 
-    <!-- Metal Identifier Column -->
-    <ng-container matColumnDef="metalIdentifier">
-      <mat-header-cell *matHeaderCellDef> metalIdentifier</mat-header-cell>
-      <mat-cell *matCellDef="let metal"> {{metal.metalIdentifier}} </mat-cell>
-    </ng-container>
+      <!-- Metal Identifier Column -->
+      <ng-container matColumnDef="metalIdentifier">
+        <mat-header-cell *matHeaderCellDef> metalIdentifier</mat-header-cell>
+        <mat-cell *matCellDef="let metal"> {{metal.metalIdentifier}} </mat-cell>
+      </ng-container>
 
-    <!-- Metal Name Column -->
-    <ng-container matColumnDef="metalName">
-      <mat-header-cell *matHeaderCellDef> metalName </mat-header-cell>
-      <mat-cell *matCellDef="let metal"> {{metal.metalName}} </mat-cell>
-    </ng-container>
+      <!-- Metal Name Column -->
+      <ng-container matColumnDef="metalName">
+        <mat-header-cell *matHeaderCellDef> metalName </mat-header-cell>
+        <mat-cell *matCellDef="let metal"> {{metal.metalName}} </mat-cell>
+      </ng-container>
 
-    <!-- metal Rate Column -->
-    <ng-container matColumnDef="metalRate">
-      <mat-header-cell *matHeaderCellDef> metalRate </mat-header-cell>
-      <mat-cell *matCellDef="let metal"> {{metal.metalRate}} </mat-cell>
-    </ng-container>
+      <!-- metal Rate Column -->
+      <ng-container matColumnDef="metalRate">
+        <mat-header-cell *matHeaderCellDef> metalRate </mat-header-cell>
+        <mat-cell *matCellDef="let metal"> {{metal.metalRate}} </mat-cell>
+      </ng-container>
 
-    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
-    <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
-  </mat-table>
+      <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+      <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+    </mat-table>
   </mat-card>
 
   <mat-card>
@@ -50,30 +50,42 @@
         </mat-tab>
         <mat-tab label="Trade Create">
           <br>
-           <mat-card-title> Trade Creation</mat-card-title>
-    <mat-card-subtitle>Trade Creation Form</mat-card-subtitle>
-    <mat-card-content>
-   <section>
-  <div class="form-container">
-    <form [formGroup]="tradeCreation" (ngSubmit)="onSubmit(tradeCreation)" >
-      <mat-form-field>
-        <label for="tradeId">Trade Id: </label>
-        <input matInput type="text" id="tradeId" name="tradeId" formControlName="tradeId">
-      </mat-form-field>
-      <mat-form-field>
-        <label for="tradeName">Trade Name: </label>
-        <input matInput type="text" id="tradeName" name="tradeName" formControlName="tradeName">
-      </mat-form-field>
-      <mat-form-field>
-        <label for="quantity">Quantity: </label>
-        <input matInput type="text" name="quantity" formControlName="quantity" >
-      </mat-form-field>
-      <button mat-raised-button type="submit" >Create</button>
+          <mat-card-title> Trade Creation</mat-card-title>
+          <mat-card-subtitle>Trade Creation Form</mat-card-subtitle>
+          <mat-card-content>
+            <section>
+              <div class="form-container">
+                <form [formGroup]="tradeCreation" (ngSubmit)="onSubmit(tradeCreation)">
+                  <mat-form-field>
+                    <label for="tradeId">Trade Id: </label>
+                    <input matInput type="text" id="tradeId" name="tradeId" formControlName="tradeId">
+                  </mat-form-field>
+                  <mat-form-field>
+                    <label for="tradeName">Trade Name: </label>
+                    <input matInput type="text" id="tradeName" name="tradeName" formControlName="tradeName">
+                  </mat-form-field>
+                  <mat-form-field>
+                    <label for="quantity">Quantity: </label>
+                    <input matInput type="text" name="quantity" formControlName="quantity">
+                  </mat-form-field>
+                  <mat-form-field>
+                    <label for="commodity">Commodity: </label>
+                    <input matInput type="text" name="commodity" formControlName="commodity">
+                  </mat-form-field>
+                  <mat-form-field>
+                    <label for="location">Location: </label>
+                    <input matInput type="text" name="location" formControlName="location">
+                  </mat-form-field>
+                  <mat-form-field>
+                    <label for="counterparty">Counterparty: </label>
+                    <input matInput type="text" name="Counterparty" formControlName="counterparty">
+                  </mat-form-field>
+                  <button mat-raised-button type="submit">Create</button>
 
-    </form>
-  </div>
-</section>
-    </mat-card-content>
+                </form>
+              </div>
+            </section>
+          </mat-card-content>
         </mat-tab>
       </mat-tab-group>
     </mat-card-content>

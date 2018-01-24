@@ -47,7 +47,6 @@ export class TradeDetailsComponent implements OnInit {
   gotoTradesList() {
     let link = ['/trades'];
     this.router.navigate(link);
-
   }
 
 

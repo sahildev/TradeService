@@ -1,7 +1,15 @@
 <section *ngIf="ReferenceData">
-  <h2>You selected: {{ReferenceData.refValue}}</h2>
+  <h2>You selected: {{ReferenceData.refCode}}</h2>
+  <h3>Value</h3>
+  <p>
+    This Refers to {{ReferenceData.refValue}}.
+  </p>
   <h3>Description</h3>
   <p>
-    {{ReferenceData.refDescription}} was execute .
+   The description for {{ReferenceData.refValue}} is {{ReferenceData.refDescription}}.
   </p>
 </section>
+
+<button mat-icon-button (click)="gotoTradesList()">
+    <mat-icon aria-label="Back to trade list">keyboard_return</mat-icon>
+ </button>

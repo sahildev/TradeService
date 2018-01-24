@@ -3,8 +3,6 @@ package com.spring.fullStack.refDataService;
 import java.util.HashMap;
 import java.util.Map;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Repository;
 
 @Repository
@@ -29,9 +27,9 @@ public class ReferenceDataRepository {
 		RefrenceDataMap.put("DN", new RefrenceData("DN","Denver","Denver"));
 		
 		//Counterparty
-		RefrenceDataMap.put("LN", new RefrenceData("1","London","London"));
-		RefrenceDataMap.put("LN", new RefrenceData("2","London","London"));
-		RefrenceDataMap.put("LN", new RefrenceData("3","London","London"));
+		RefrenceDataMap.put("CP1", new RefrenceData("CP1","London","Counter Party"));
+		RefrenceDataMap.put("CP2", new RefrenceData("CP1","London","Counter Party"));
+		RefrenceDataMap.put("CP3", new RefrenceData("CP1","London","Counter Party"));
 		
 		System.out.println(RefrenceDataMap.get(refCode));
 		return RefrenceDataMap.get(refCode);
