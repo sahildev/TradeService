@@ -23,7 +23,7 @@
     <!-- Trade Quantity Column -->
     <ng-container matColumnDef="commodity">
       <mat-header-cell *matHeaderCellDef> commodity </mat-header-cell>
-      <mat-cell *matCellDef="let trade"> {{trade.commodity}} </mat-cell>
+      <mat-cell *matCellDef="let trade"> <a [routerLink]="['/refdata', trade.commodity]">{{trade.commodity}} </a></mat-cell>
     </ng-container>
 
     <!-- Trade Quantity Column -->

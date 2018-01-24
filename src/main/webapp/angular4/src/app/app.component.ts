@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectorRef  } from '@angular/core';
 
 //imports to handle api requests
 import {Http, Response} from "@angular/http";
@@ -29,13 +29,19 @@ export class AppComponent implements OnInit  {
   tradeCreation : FormGroup;
   trade: Trade;
   statusCode: number;
+  dataSource2: any;
+  displayedColumns: any;
+  interval: any;
 
   constructor(private tradeService: TradeService,
-  private marketDataService: marketDataService) {}
+  private marketDataService: marketDataService, private changeDetectorRefs: ChangeDetectorRef) {}
 
-  dataSource2 = new MarketDataSource(this.marketDataService);
-  displayedColumns = ['metalId', 'metalIdentifier','metalName','metalRate'];
-
+  refresh() {
+  this.dataSource2 = new MarketDataSource(this.marketDataService);
+  this.displayedColumns = ['metalId', 'metalIdentifier','metalName','metalRate'];
+  this.changeDetectorRefs.detectChanges();
+  
+  }
 
   ngOnInit() {
         this.tradeCreation = new FormGroup({
@@ -43,6 +49,10 @@ export class AppComponent implements OnInit  {
             tradeName: new FormControl(''),
             quantity: new FormControl('')
         });
+        //   this.interval = setInterval(() => { 
+            this.refresh();
+        // }, 1000);
+        
     }
 
     onSubmit({value,valid}: {value:TradeCreation, valid:boolean}) {
@@ -60,6 +70,9 @@ export interface TradeCreation {
   tradeId:string;
   tradeName:string;
   quantity:number;
+  commodity:string;
+  location:string;
+  counterparty:string;
 }
 
 

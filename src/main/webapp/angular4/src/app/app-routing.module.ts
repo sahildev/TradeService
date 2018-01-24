@@ -3,6 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { TradeListComponent } from "./trade-list/trade-list.component";
 import { TradeDetailsComponent } from "./trade-details/trade-details.component";
+import { ReferenceDataComponent } from "./reference-data/reference-data.component";
 
 // Route config let's you map routes to components
 const routes: Routes = [
@@ -15,6 +16,11 @@ const routes: Routes = [
   {
     path: 'trades/:tradeId', 
     component: TradeDetailsComponent 
+  },
+  // map 'trades/:tradeId' to person details component
+  {
+    path: 'refdata/:refCode', 
+    component: ReferenceDataComponent 
   },
   // map '/' to '/trades' as our default route
   {

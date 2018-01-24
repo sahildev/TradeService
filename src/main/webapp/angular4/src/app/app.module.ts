@@ -14,13 +14,16 @@ import { AppComponent } from './app.component';
 import { TradeListComponent } from './trade-list/trade-list.component';
 import { TradeService } from './trade.service';
 import { marketDataService } from './marketData.service';
+import { ReferenceDataService } from './referenceData.service';
 import { TradeDetailsComponent } from './trade-details/trade-details.component';
+import { ReferenceDataComponent } from "./reference-data/reference-data.component";
 
 @NgModule({
   declarations: [
     AppComponent,
     TradeListComponent,
-    TradeDetailsComponent
+    TradeDetailsComponent,
+    ReferenceDataComponent
   ],
   imports: [
     BrowserModule,
@@ -31,7 +34,7 @@ import { TradeDetailsComponent } from './trade-details/trade-details.component';
     AppMaterialModule,
     BrowserAnimationsModule
   ],
-  providers: [TradeService,marketDataService],
+  providers: [TradeService,marketDataService,ReferenceDataService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
